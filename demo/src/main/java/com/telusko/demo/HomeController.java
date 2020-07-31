@@ -4,6 +4,7 @@ package com.telusko.demo;
 //import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -42,16 +43,25 @@ public class HomeController {
 //		return "result.jsp";
 //	}
 	
-	//ModelAndView
+//	//ModelAndView
+//	@RequestMapping("add")
+//	public ModelAndView add(@RequestParam("num1") int i, @RequestParam("num2") int j) {
+//		System.out.println("Home Contoller result is called");
+//		ModelAndView mv = new ModelAndView();
+//		mv.setViewName("result");
+//		int num3 = i + j; // We have to pass this num3 in result.jsp
+//		mv.addObject("num3", num3);
+//		// 1st num3 is above one and 2nd num3 is use in jsp file
+//		return mv;
+//	}
+	
+	//Model or ModelMap
 	@RequestMapping("add")
-	public ModelAndView add(@RequestParam("num1") int i, @RequestParam("num2") int j) {
+	public String add(@RequestParam("num1") int i, @RequestParam("num2") int j, ModelMap m) { // we can use Model also
 		System.out.println("Home Contoller result is called");
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("result");
 		int num3 = i + j; // We have to pass this num3 in result.jsp
-		mv.addObject("num3", num3);
-		// 1st num3 is above one and 2nd num3 is use in jsp file
-		return mv;
+		m.addAttribute("num3", num3); // 1st num3 is above one and 2nd num3 is use in jsp file
+		return "result";
 	}
 
 }
