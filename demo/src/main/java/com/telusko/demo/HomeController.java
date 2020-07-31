@@ -1,7 +1,7 @@
 package com.telusko.demo;
 
 //import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+//import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +14,7 @@ public class HomeController {
 	@RequestMapping("/")
 	public String home() {
 		System.out.println("Home Contoller method index is called");
-		return "index.jsp";
+		return "index";
 	}
 	
 	// Accepting User Input
@@ -47,7 +47,7 @@ public class HomeController {
 	public ModelAndView add(@RequestParam("num1") int i, @RequestParam("num2") int j) {
 		System.out.println("Home Contoller result is called");
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("result.jsp");
+		mv.setViewName("result");
 		int num3 = i + j; // We have to pass this num3 in result.jsp
 		mv.addObject("num3", num3);
 		// 1st num3 is above one and 2nd num3 is use in jsp file
