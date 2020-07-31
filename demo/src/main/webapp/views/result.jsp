@@ -8,6 +8,7 @@
 </head>
 <body>
 	<%-- <h1>RESULT IS: ${num3}</h1> --%>
-	<h1>RESULT IS: ${a1}</h1>
+	<h1>RESULT IS: ${a1}</h1><br><br>
+	Welcome back ${name}
 </body>
 </html>

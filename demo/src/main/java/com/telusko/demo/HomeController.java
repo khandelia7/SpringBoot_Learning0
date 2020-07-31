@@ -86,4 +86,10 @@ public class HomeController {
 		return "result";
 	}
 	
+	// This will call first in the Controller
+	@ModelAttribute
+	public void modelData(Model m) {
+		m.addAttribute("name", "Alien");
+	}
+	
 }
