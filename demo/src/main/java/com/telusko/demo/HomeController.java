@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
@@ -16,6 +17,7 @@ public class HomeController {
 		return "index.jsp";
 	}
 	
+	// Accepting User Input
 //	@RequestMapping("add")
 //	public String add(HttpServletRequest request) {
 //		System.out.println("Home Contoller result is called");
@@ -30,13 +32,26 @@ public class HomeController {
 //		return "result.jsp";
 //	}
 	
+	// @RequestParam
+//	@RequestMapping("add")
+//	public String add(@RequestParam("num1") int i, @RequestParam("num2") int j, HttpSession session) {
+//		System.out.println("Home Contoller result is called");
+//		int num3 = i + j; // We have to pass this num3 in result.jsp
+//		session.setAttribute("num3", num3); 
+//		// 1st num3 is above one and 2nd num3 is use in jsp file
+//		return "result.jsp";
+//	}
+	
+	//ModelAndView
 	@RequestMapping("add")
-	public String add(@RequestParam("num1") int i, @RequestParam("num2") int j, HttpSession session) {
+	public ModelAndView add(@RequestParam("num1") int i, @RequestParam("num2") int j) {
 		System.out.println("Home Contoller result is called");
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("result.jsp");
 		int num3 = i + j; // We have to pass this num3 in result.jsp
-		session.setAttribute("num3", num3); 
+		mv.addObject("num3", num3);
 		// 1st num3 is above one and 2nd num3 is use in jsp file
-		return "result.jsp";
+		return mv;
 	}
 
 }
