@@ -4,10 +4,14 @@ package com.telusko.demo;
 //import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.telusko.demo.model.Alien;
 
 @Controller
 public class HomeController {
@@ -29,7 +33,7 @@ public class HomeController {
 //		//return "result.jsp?num3=" + num3;
 //		HttpSession session = request.getSession();
 //		session.setAttribute("num3", num3); 
-//		// 1st num3 is above one and 2nd num3 is use in jsp file
+//      // 2nd num3 is above one and 1st num3 is use in jsp file
 //		return "result.jsp";
 //	}
 	
@@ -39,7 +43,7 @@ public class HomeController {
 //		System.out.println("Home Contoller result is called");
 //		int num3 = i + j; // We have to pass this num3 in result.jsp
 //		session.setAttribute("num3", num3); 
-//		// 1st num3 is above one and 2nd num3 is use in jsp file
+//		// 2nd num3 is above one and 1st num3 is use in jsp file
 //		return "result.jsp";
 //	}
 	
@@ -51,7 +55,7 @@ public class HomeController {
 //		mv.setViewName("result");
 //		int num3 = i + j; // We have to pass this num3 in result.jsp
 //		mv.addObject("num3", num3);
-//		// 1st num3 is above one and 2nd num3 is use in jsp file
+//		// 2nd num3 is above one and 1st num3 is use in jsp file
 //		return mv;
 //	}
 	
@@ -60,8 +64,26 @@ public class HomeController {
 	public String add(@RequestParam("num1") int i, @RequestParam("num2") int j, ModelMap m) { // we can use Model also
 		System.out.println("Home Contoller result is called");
 		int num3 = i + j; // We have to pass this num3 in result.jsp
-		m.addAttribute("num3", num3); // 1st num3 is above one and 2nd num3 is use in jsp file
+		m.addAttribute("num3", num3); // 2nd num3 is above one and 1st num3 is use in jsp file
 		return "result";
 	}
-
+	
+//	//ModelAttribute need
+//	@RequestMapping("addAlien")
+//	public String addAlien(@RequestParam("aid") int aid, @RequestParam("aname") String aname, Model m) { 
+//			System.out.println("Home Contoller result is called 2nd time");
+//			Alien a = new Alien();
+//			a.setAid(aid);
+//			a.setAname(aname);
+//			m.addAttribute("alien", a); // 2nd a is above one and 1st alien is use in jsp file
+//			return "result";
+//	}
+	
+	//ModelAttribute 
+	@RequestMapping("addAlien")
+	public String addAlien(@ModelAttribute("a1") Alien a, Model m) { 
+		System.out.println("Home Contoller result is called 2nd time");
+		return "result";
+	}
+	
 }

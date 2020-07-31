@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>RESULT IS: ${num3}</h1>
+	<%-- <h1>RESULT IS: ${num3}</h1> --%>
+	<h1>RESULT IS: ${a1}</h1>
 </body>
 </html>
