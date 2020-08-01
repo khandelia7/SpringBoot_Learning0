@@ -14,7 +14,8 @@
 			type="submit">
 	</form> -->
 	<br> <br> <br>
-	<form action="addAlien">
+	
+	<form action="addAlien" > <!-- IMPORT BOOK -->
 		Enter your id: <input type="text" name="aid"> <br>
 		Enter your name: <input type="text" name="aname"> <br> <input
 			type="submit">

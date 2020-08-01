@@ -7,9 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
+// import org.springframework.web.servlet.ModelAndView;
 
 import com.telusko.demo.model.Alien;
 
@@ -79,8 +81,16 @@ public class HomeController {
 //			return "result";
 //	}
 	
-	//ModelAttribute 
-	@RequestMapping("addAlien")
+//	//ModelAttribute 
+//	@RequestMapping("addAlien")
+//	public String addAlien(@ModelAttribute("a1") Alien a, Model m) { 
+//		System.out.println("Home Contoller result is called 2nd time");
+//		return "result";
+//	}
+	
+	//Method POST
+	@PostMapping(value = "addAlien") // IMPORT BOOK
+//	@RequestMapping(value = "addAlien", method=RequestMethod.GET) // IMPORT BOOK
 	public String addAlien(@ModelAttribute("a1") Alien a, Model m) { 
 		System.out.println("Home Contoller result is called 2nd time");
 		return "result";
