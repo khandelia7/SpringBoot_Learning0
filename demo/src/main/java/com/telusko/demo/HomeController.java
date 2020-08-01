@@ -1,11 +1,15 @@
 package com.telusko.demo;
 
+import java.util.Arrays;
+import java.util.List;
+
 //import javax.servlet.http.HttpServletRequest;
 //import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -94,6 +98,14 @@ public class HomeController {
 	public String addAlien(@ModelAttribute("a1") Alien a, Model m) { 
 		System.out.println("Home Contoller result is called 2nd time");
 		return "result";
+	}
+	
+	// Method GET
+	@GetMapping("getAliens")
+	public String getAlien(Model m) {
+		List<Alien> aliens = Arrays.asList( new Alien(101,"Akash"), new Alien(102,"Khandelia") );
+		m.addAttribute("result", aliens);
+		return "showAliens";
 	}
 	
 	// This will call first in the Controller
